@@ -1,0 +1,23 @@
+syntax = "proto3";
+package simplechat;
+
+option go_package = "github.com/moreyhat/grpc-example/simple-chat/pb";
+
+import "google/protobuf/empty.proto";
+
+message PostMessageRequest {
+  string Message = 1;
+}
+
+message PostMessageResponse {
+  bool Result = 1;
+}
+
+message ListMessagesResponse {
+  repeated string Message = 1;
+}
+
+service Chat {
+  rpc PostMessage (PostMessageRequest) returns (PostMessageResponse) {}
+  rpc ListMessages (google.protobuf.Empty) returns (ListMessagesResponse) {}
+}
