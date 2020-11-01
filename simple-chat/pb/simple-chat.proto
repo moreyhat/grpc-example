@@ -13,8 +13,13 @@ message PostMessageResponse {
   bool Result = 1;
 }
 
+message MessageItem {
+  string TimeStamp = 1;
+  string Message = 2;
+}
+
 message ListMessagesResponse {
-  repeated string Message = 1;
+  repeated MessageItem Item = 1;
 }
 
 service Chat {
